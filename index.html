@@ -2,29 +2,120 @@
 <html>
 <head>
     <title>Fido</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
+
+    <!-- <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
+
+    <style>
+
+    #head  {
+            padding: 30px;
+            text-align: center;
+            color:#333333;
+            font-family: Arial, sans-serif;
+    }
+
+    #fido {
+            font-family: "Apple Chancery", cursive;
+            padding-bottom: 20px;
+    }
+
+    .mnav-bar   {list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333333;
+    }
+
+    li  {
+        padding : 5px;
+        display: inline;
+        color: white;
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
+        }
+
+    .nav-left {
+        float: left;
+    }
+
+    .nav-right {
+        float: right;
+    }
+
+    </style>
+
 </head>
 <body>
-    <div>
-        <h1>Fido</h1>
-        <h3>an interactive online music editor</h3>
+    <div id = "head">
+        <h1 id = "fido">Fido</h1>
+        <h4>An Interactive Online Music Editor</h4>
     </div>
-    
+
+
     <div>
-        <nav>
-            <ul class="nav nav-pills">
-                <li class="nav-item">Tempo</li>
-                <li class="nav-item">Meter</li>
-                <li class="nav-item">Bar</li>
-                <li class="nav-item">Sound</li>
-                <li class="nav-item">Pattern</li>
-            </ul>
-            <button class="nav-item">Play</button>
-            <button><a href="track.html">Track</a></button>
-        </nav>
+        <ul class= "mnav-bar">
+
+            <span class="nav-left">
+                <li>Meter
+                        <select name="meter">
+                            <option value="2/4">2/4</option>
+                            <option value="3/4">3/4</option>
+                            <option value="4/4">4/4</option>
+                            <option value="6/8">6/8</option>
+                        </select>
+                    </li>
+
+                    <li class = "bcontainer">Bar
+                        <input type = "integer" name = "Bars" value = "4" size = 2>
+                    </li>
+                    <li>Instrument
+                        <select>
+                            <option value="piano">piano</option>
+                            <option value="guitar">guitar</option>
+                            <option value="flute">flute</option>
+                            <option value="violin">violin</option>
+                        </select>
+                    </li>
+                    <li>Pattern
+                        <select>
+                                <option value="1">pattern 1</option>
+                                <option value="2">pattern 2</option>
+                                <option value="3">pattern 3</option>
+                                <option value="4">pattern 4</option>
+                            </select>
+                    </li>
+            </span>
+
+
+            <span class="nav-right">
+                <li>Tempo
+                        <input type="range" list="tempo">
+                            <datalist id="tempo">
+                                <option value="50" label="50">Largo</option>
+                                <option value="66">Adagio</option>
+                                <option value="96" label="96">Andante</option>
+                                <option value="108">Moderato</option>
+                                <option value="128" label="128">Allegro</option>
+                            </datalist>
+                    </li>
+                <li><button class="play">Play</button></li>
+                <li><button><a href="track.html" style = "color: #333333">Track</a></button></li>
+                </span>
+
+        </ul>
+
+
+
+
     </div>
+
     <div>
         <img src="keyboard.jpg" alt=""/>
     </div>
