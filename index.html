@@ -8,11 +8,24 @@
     #head   {text-align: center;
             color: blue;
             font-family: Arial, Helvetica, sans-serif;
-            padding:
     }
-    #mbar   {
 
-    }
+    .mnav-bar   {list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333333;
+                }
+
+    li  {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
+        }
+        
     </style>
 </head>
 <body>
@@ -22,19 +35,13 @@
     </div>
 
     <div>
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="mbar">
-                    Tempo
-                </div>
-                <div class="mbar">
-                    Meter
-                </div>
-                <div class="mbar">
-                    Bar
-                </div>
-        </div>
-    </div>
+        <ul class= "mnav-bar">
+            <li>Tempo</li>
+            <li>Meter</li>
+            <li>Bar</li>
+            <li>Instrument</li>
+            <li>Pattern</li>
+        </ul>
             <button class="play">Play</button>
             <button><a href="track.html">Track</a></button>
     </div>
