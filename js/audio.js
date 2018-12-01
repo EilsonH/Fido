@@ -1,39 +1,42 @@
-import './loader.js'
 
-// var AudioContext = window.AudioContext || window.webkitAudioContext;
-// var context = new AudioContext();
+// function audioContextCheck() {
+//     if (typeof AudioContext !== "undefined") {
+//       return new AudioContext();
+//     } else if (typeof webkitAudioContext !== "undefined") {
+//       return new webkitAudioContext();
+//     } else if (typeof mozAudioContext !== "undefined") {
+//       return new mozAudioContext();
+//     } else {
+//       throw new Error('AudioContext not supported');
+//     }
+//   }
+  
+var context = new AudioContext();
 
-// var oscillator = new context.createOscillator();
-// var gain = new context.createGain();
-
-const trackArray = [];
-
-function Track(instrument) {
-    this.onPlay = 'false';
-    this.instrument = instrument;
-    trackArray.push(this);
-}
-
-const playButton = document.getElementById("play");
-playButton.onclick = function () {
-    if(trackArray.length == 0) {
-        var track1 = new Track("acoustic_grand_piano");
-        track1.onPlay = 'true';
-    }
-    track.onPlay = "true";
-    playTrack();
-}
-
-function() {
-
-}
+var oscillator = context.createOscillator();
 
 
 
-MIDI.loadPlugin(onsuccess);
-// simple example to get started;
-MIDI.loadPlugin({
-    instrument: "acoustic_grand_piano", // or the instrument code 1 (aka the default)
-    instruments: [ "acoustic_grand_piano", "acoustic_guitar_nylon" ], // or multiple instruments
-    onsuccess: function() { }
-});
+var gain = context.createGain();
+
+console.log(oscillator);
+oscillator.frequency.setValueAtTime(440, context.currentTime);
+oscillator.type = 'sine';
+oscillator.connect(context.destination);
+oscillator.start();
+oscillator.detune.setValueAtTime(200, context.currentTime + 1);
+oscillator.detune.setValueAtTime(400, context.currentTime + 2);
+oscillator.detune.setValueAtTime(500, context.currentTime + 3);
+oscillator.detune.setValueAtTime(700, context.currentTime + 4);
+oscillator.detune.setValueAtTime(900, context.currentTime + 5);
+oscillator.detune.setValueAtTime(1100, context.currentTime + 6);
+oscillator.detune.setValueAtTime(1200, context.currentTime + 7);
+
+oscillator.stop(context.currentTime + 8);
+
+
+// console.log(gain);
+
+
+// oscillator.connect(gain);
+// gain.connect(context.destination);
