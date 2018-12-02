@@ -1,5 +1,14 @@
 window.onload = function() {
 
+MIDI.loadPlugin({
+    soundfontUrl: "./soundfont/",
+    instrument: "acoustic_grand_piano",
+    onsuccess: function() {
+        MIDI.noteOn(0, 69, 70, 0);
+        MIDI.noteOff(0, 69, 0.75);
+    }
+});
+
 var audioContext = new AudioContext();
 var oscillator = audioContext.createOscillator();
 oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
@@ -81,7 +90,13 @@ oscillator.type = "sine";
     document.addEventListener("keyup", function() {
         gain.gain.value = 0;
     })
+
+    
+    
 }
+
+
+
 
 
 // oscillator.detune.setValueAtTime(200, context.currentTime + 1);
